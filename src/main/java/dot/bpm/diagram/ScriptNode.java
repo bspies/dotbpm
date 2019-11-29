@@ -1,4 +1,4 @@
 package dot.bpm.diagram;
 
-public class ScriptNode extends AbstractNode {
+public class ScriptNode extends ActivityNode {
 }

@@ -1,4 +1,4 @@
 package dot.bpm.diagram;
 
-public class TaskNode extends AbstractNode {
+public class TaskNode extends ActivityNode {
 }

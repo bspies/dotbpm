@@ -1,4 +1,4 @@
-// Generated from E:/Brennan/Projects/workhorse/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.7.2
+// Generated from E:/Brennan/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.7.2
 package dot.bpm.parser.antlr;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -17,6 +17,12 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProcess(DOTBPMParser.ProcessContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#subprocess}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubprocess(DOTBPMParser.SubprocessContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#stmt_list}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -28,6 +34,18 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitStmt(DOTBPMParser.StmtContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#sequence}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSequence(DOTBPMParser.SequenceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#flow_element}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFlow_element(DOTBPMParser.Flow_elementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#activity}.
 	 * @param ctx the parse tree
@@ -65,11 +83,11 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitGateway_type(DOTBPMParser.Gateway_typeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DOTBPMParser#association}.
+	 * Visit a parse tree produced by {@link DOTBPMParser#assoc_flow}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAssociation(DOTBPMParser.AssociationContext ctx);
+	T visitAssoc_flow(DOTBPMParser.Assoc_flowContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#seq_flow}.
 	 * @param ctx the parse tree
@@ -89,9 +107,21 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAttr_list(DOTBPMParser.Attr_listContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#attr_value}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAttr_value(DOTBPMParser.Attr_valueContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#id}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitId(DOTBPMParser.IdContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#link}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLink(DOTBPMParser.LinkContext ctx);
 }

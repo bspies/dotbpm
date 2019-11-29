@@ -1,5 +1,8 @@
 package dot.bpm.diagram;
 
+/**
+ * Base class for diagram graph nodes.
+ */
 public abstract class AbstractNode implements Node {
 
     private Diagram parent;

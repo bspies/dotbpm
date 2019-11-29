@@ -1,4 +1,4 @@
-// Generated from E:/Brennan/Projects/workhorse/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.7.2
+// Generated from E:/Brennan/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.7.2
 package dot.bpm.parser.antlr;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -28,6 +28,18 @@ public class DOTBPMBaseListener implements DOTBPMListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterSubprocess(DOTBPMParser.SubprocessContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSubprocess(DOTBPMParser.SubprocessContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterStmt_list(DOTBPMParser.Stmt_listContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -47,6 +59,30 @@ public class DOTBPMBaseListener implements DOTBPMListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitStmt(DOTBPMParser.StmtContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSequence(DOTBPMParser.SequenceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSequence(DOTBPMParser.SequenceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFlow_element(DOTBPMParser.Flow_elementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFlow_element(DOTBPMParser.Flow_elementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -124,13 +160,13 @@ public class DOTBPMBaseListener implements DOTBPMListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssociation(DOTBPMParser.AssociationContext ctx) { }
+	@Override public void enterAssoc_flow(DOTBPMParser.Assoc_flowContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAssociation(DOTBPMParser.AssociationContext ctx) { }
+	@Override public void exitAssoc_flow(DOTBPMParser.Assoc_flowContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -172,6 +208,18 @@ public class DOTBPMBaseListener implements DOTBPMListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterAttr_value(DOTBPMParser.Attr_valueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAttr_value(DOTBPMParser.Attr_valueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterId(DOTBPMParser.IdContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -179,6 +227,18 @@ public class DOTBPMBaseListener implements DOTBPMListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitId(DOTBPMParser.IdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLink(DOTBPMParser.LinkContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLink(DOTBPMParser.LinkContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

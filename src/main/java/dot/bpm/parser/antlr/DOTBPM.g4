@@ -44,3 +44,5 @@ LETTER      :   [a-zA-Z\u0080-\u00FF_] ;
 
 COMMENT     :   '/*' .*? '*/'       -> skip ;
 LINE_COMMENT:   '//' .*? '\r'? '\n' -> skip ;
+/* Skip any whitespace */
+WS          :   (' ' | '\t' | '\n' | '\r')+ -> skip ;

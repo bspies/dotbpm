@@ -1,4 +1,4 @@
-// Generated from E:/Brennan/Projects/workhorse/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.7.2
+// Generated from E:/Brennan/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.7.2
 package dot.bpm.parser.antlr;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -21,17 +21,20 @@ public class DOTBPMParser extends Parser {
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
 		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
 		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, T__29=30, T__30=31, 
-		PROCESS=32, SUBPROCESS=33, STRING=34, NUMBER=35, ID=36, COMMENT=37, LINE_COMMENT=38;
+		T__31=32, PROCESS=33, SUBPROCESS=34, STRING=35, NUMBER=36, BOOLEAN=37, 
+		ID=38, COMMENT=39, LINE_COMMENT=40, WS=41;
 	public static final int
-		RULE_process = 0, RULE_stmt_list = 1, RULE_stmt = 2, RULE_activity = 3, 
-		RULE_activity_type = 4, RULE_event = 5, RULE_event_type = 6, RULE_gateway = 7, 
-		RULE_gateway_type = 8, RULE_association = 9, RULE_seq_flow = 10, RULE_msg_flow = 11, 
-		RULE_attr_list = 12, RULE_id = 13;
+		RULE_process = 0, RULE_subprocess = 1, RULE_stmt_list = 2, RULE_stmt = 3, 
+		RULE_sequence = 4, RULE_flow_element = 5, RULE_activity = 6, RULE_activity_type = 7, 
+		RULE_event = 8, RULE_event_type = 9, RULE_gateway = 10, RULE_gateway_type = 11, 
+		RULE_assoc_flow = 12, RULE_seq_flow = 13, RULE_msg_flow = 14, RULE_attr_list = 15, 
+		RULE_attr_value = 16, RULE_id = 17, RULE_link = 18;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"process", "stmt_list", "stmt", "activity", "activity_type", "event", 
-			"event_type", "gateway", "gateway_type", "association", "seq_flow", "msg_flow", 
-			"attr_list", "id"
+			"process", "subprocess", "stmt_list", "stmt", "sequence", "flow_element", 
+			"activity", "activity_type", "event", "event_type", "gateway", "gateway_type", 
+			"assoc_flow", "seq_flow", "msg_flow", "attr_list", "attr_value", "id", 
+			"link"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -41,7 +44,7 @@ public class DOTBPMParser extends Parser {
 			null, "'{'", "'}'", "';'", "'['", "':'", "'|'", "']'", "'task'", "'script'", 
 			"'action'", "'('", "')'", "'>'", "'-'", "'<<'", "'X'", "'*'", "'+'", 
 			"'!'", "'?'", "'^'", "'~'", "'@'", "'..'", "'<'", "'O'", "'--'", "'=>'", 
-			"'->'", "'='", "','"
+			"'->'", "'='", "','", "'#'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -49,8 +52,8 @@ public class DOTBPMParser extends Parser {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, null, null, null, null, "PROCESS", "SUBPROCESS", 
-			"STRING", "NUMBER", "ID", "COMMENT", "LINE_COMMENT"
+			null, null, null, null, null, null, null, null, null, "PROCESS", "SUBPROCESS", 
+			"STRING", "NUMBER", "BOOLEAN", "ID", "COMMENT", "LINE_COMMENT", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -137,15 +140,71 @@ public class DOTBPMParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(28);
+			setState(38);
 			match(PROCESS);
-			setState(29);
+			setState(39);
 			id();
-			setState(30);
+			setState(40);
 			match(T__0);
-			setState(31);
+			setState(41);
 			stmt_list();
-			setState(32);
+			setState(42);
+			match(T__1);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class SubprocessContext extends ParserRuleContext {
+		public TerminalNode SUBPROCESS() { return getToken(DOTBPMParser.SUBPROCESS, 0); }
+		public IdContext id() {
+			return getRuleContext(IdContext.class,0);
+		}
+		public Stmt_listContext stmt_list() {
+			return getRuleContext(Stmt_listContext.class,0);
+		}
+		public SubprocessContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_subprocess; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).enterSubprocess(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).exitSubprocess(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DOTBPMVisitor ) return ((DOTBPMVisitor<? extends T>)visitor).visitSubprocess(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final SubprocessContext subprocess() throws RecognitionException {
+		SubprocessContext _localctx = new SubprocessContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_subprocess);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(44);
+			match(SUBPROCESS);
+			setState(45);
+			id();
+			setState(46);
+			match(T__0);
+			setState(47);
+			stmt_list();
+			setState(48);
 			match(T__1);
 			}
 		}
@@ -188,32 +247,32 @@ public class DOTBPMParser extends Parser {
 
 	public final Stmt_listContext stmt_list() throws RecognitionException {
 		Stmt_listContext _localctx = new Stmt_listContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_stmt_list);
+		enterRule(_localctx, 4, RULE_stmt_list);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(40);
+			setState(56);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==T__3) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__3) | (1L << T__10) | (1L << T__24) | (1L << T__31) | (1L << SUBPROCESS))) != 0)) {
 				{
 				{
-				setState(34);
+				setState(50);
 				stmt();
-				setState(36);
+				setState(52);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==T__2) {
 					{
-					setState(35);
+					setState(51);
 					match(T__2);
 					}
 				}
 
 				}
 				}
-				setState(42);
+				setState(58);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -233,6 +292,12 @@ public class DOTBPMParser extends Parser {
 	public static class StmtContext extends ParserRuleContext {
 		public ActivityContext activity() {
 			return getRuleContext(ActivityContext.class,0);
+		}
+		public SubprocessContext subprocess() {
+			return getRuleContext(SubprocessContext.class,0);
+		}
+		public SequenceContext sequence() {
+			return getRuleContext(SequenceContext.class,0);
 		}
 		public StmtContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -255,12 +320,196 @@ public class DOTBPMParser extends Parser {
 
 	public final StmtContext stmt() throws RecognitionException {
 		StmtContext _localctx = new StmtContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_stmt);
+		enterRule(_localctx, 6, RULE_stmt);
+		try {
+			setState(62);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(59);
+				activity();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(60);
+				subprocess();
+				}
+				break;
+			case 3:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(61);
+				sequence();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class SequenceContext extends ParserRuleContext {
+		public List<Flow_elementContext> flow_element() {
+			return getRuleContexts(Flow_elementContext.class);
+		}
+		public Flow_elementContext flow_element(int i) {
+			return getRuleContext(Flow_elementContext.class,i);
+		}
+		public List<Seq_flowContext> seq_flow() {
+			return getRuleContexts(Seq_flowContext.class);
+		}
+		public Seq_flowContext seq_flow(int i) {
+			return getRuleContext(Seq_flowContext.class,i);
+		}
+		public SequenceContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_sequence; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).enterSequence(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).exitSequence(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DOTBPMVisitor ) return ((DOTBPMVisitor<? extends T>)visitor).visitSequence(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final SequenceContext sequence() throws RecognitionException {
+		SequenceContext _localctx = new SequenceContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_sequence);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(43);
-			activity();
+			setState(64);
+			flow_element();
+			setState(65);
+			seq_flow();
+			setState(66);
+			flow_element();
+			setState(72);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==T__27) {
+				{
+				{
+				setState(67);
+				seq_flow();
+				setState(68);
+				flow_element();
+				}
+				}
+				setState(74);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Flow_elementContext extends ParserRuleContext {
+		public ActivityContext activity() {
+			return getRuleContext(ActivityContext.class,0);
+		}
+		public SubprocessContext subprocess() {
+			return getRuleContext(SubprocessContext.class,0);
+		}
+		public GatewayContext gateway() {
+			return getRuleContext(GatewayContext.class,0);
+		}
+		public EventContext event() {
+			return getRuleContext(EventContext.class,0);
+		}
+		public LinkContext link() {
+			return getRuleContext(LinkContext.class,0);
+		}
+		public Flow_elementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_flow_element; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).enterFlow_element(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).exitFlow_element(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DOTBPMVisitor ) return ((DOTBPMVisitor<? extends T>)visitor).visitFlow_element(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Flow_elementContext flow_element() throws RecognitionException {
+		Flow_elementContext _localctx = new Flow_elementContext(_ctx, getState());
+		enterRule(_localctx, 10, RULE_flow_element);
+		try {
+			setState(80);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(75);
+				activity();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(76);
+				subprocess();
+				}
+				break;
+			case 3:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(77);
+				gateway();
+				}
+				break;
+			case 4:
+				enterOuterAlt(_localctx, 4);
+				{
+				setState(78);
+				event();
+				}
+				break;
+			case 5:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(79);
+				link();
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -305,32 +554,32 @@ public class DOTBPMParser extends Parser {
 
 	public final ActivityContext activity() throws RecognitionException {
 		ActivityContext _localctx = new ActivityContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_activity);
+		enterRule(_localctx, 12, RULE_activity);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(45);
+			setState(82);
 			match(T__3);
-			setState(46);
+			setState(83);
 			activity_type();
-			setState(47);
+			setState(84);
 			match(T__4);
-			setState(48);
+			setState(85);
 			id();
-			setState(51);
+			setState(88);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__5) {
 				{
-				setState(49);
+				setState(86);
 				match(T__5);
-				setState(50);
+				setState(87);
 				attr_list();
 				}
 			}
 
-			setState(53);
+			setState(90);
 			match(T__6);
 			}
 		}
@@ -367,12 +616,12 @@ public class DOTBPMParser extends Parser {
 
 	public final Activity_typeContext activity_type() throws RecognitionException {
 		Activity_typeContext _localctx = new Activity_typeContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_activity_type);
+		enterRule(_localctx, 14, RULE_activity_type);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(55);
+			setState(92);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__7) | (1L << T__8) | (1L << T__9))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -420,15 +669,15 @@ public class DOTBPMParser extends Parser {
 
 	public final EventContext event() throws RecognitionException {
 		EventContext _localctx = new EventContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_event);
+		enterRule(_localctx, 16, RULE_event);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(57);
+			setState(94);
 			match(T__10);
-			setState(58);
+			setState(95);
 			event_type();
-			setState(59);
+			setState(96);
 			match(T__11);
 			}
 		}
@@ -465,12 +714,12 @@ public class DOTBPMParser extends Parser {
 
 	public final Event_typeContext event_type() throws RecognitionException {
 		Event_typeContext _localctx = new Event_typeContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_event_type);
+		enterRule(_localctx, 18, RULE_event_type);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(61);
+			setState(98);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -521,26 +770,26 @@ public class DOTBPMParser extends Parser {
 
 	public final GatewayContext gateway() throws RecognitionException {
 		GatewayContext _localctx = new GatewayContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_gateway);
+		enterRule(_localctx, 20, RULE_gateway);
 		try {
-			setState(68);
+			setState(105);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__24:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(63);
+				setState(100);
 				match(T__24);
-				setState(64);
+				setState(101);
 				gateway_type();
 				}
 				break;
 			case T__10:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(65);
+				setState(102);
 				event();
-				setState(66);
+				setState(103);
 				match(T__12);
 				}
 				break;
@@ -581,12 +830,12 @@ public class DOTBPMParser extends Parser {
 
 	public final Gateway_typeContext gateway_type() throws RecognitionException {
 		Gateway_typeContext _localctx = new Gateway_typeContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_gateway_type);
+		enterRule(_localctx, 22, RULE_gateway_type);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(70);
+			setState(107);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__25))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -609,33 +858,33 @@ public class DOTBPMParser extends Parser {
 		return _localctx;
 	}
 
-	public static class AssociationContext extends ParserRuleContext {
-		public AssociationContext(ParserRuleContext parent, int invokingState) {
+	public static class Assoc_flowContext extends ParserRuleContext {
+		public Assoc_flowContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_association; }
+		@Override public int getRuleIndex() { return RULE_assoc_flow; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).enterAssociation(this);
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).enterAssoc_flow(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).exitAssociation(this);
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).exitAssoc_flow(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof DOTBPMVisitor ) return ((DOTBPMVisitor<? extends T>)visitor).visitAssociation(this);
+			if ( visitor instanceof DOTBPMVisitor ) return ((DOTBPMVisitor<? extends T>)visitor).visitAssoc_flow(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final AssociationContext association() throws RecognitionException {
-		AssociationContext _localctx = new AssociationContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_association);
+	public final Assoc_flowContext assoc_flow() throws RecognitionException {
+		Assoc_flowContext _localctx = new Assoc_flowContext(_ctx, getState());
+		enterRule(_localctx, 24, RULE_assoc_flow);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(72);
+			setState(109);
 			match(T__26);
 			}
 		}
@@ -672,11 +921,11 @@ public class DOTBPMParser extends Parser {
 
 	public final Seq_flowContext seq_flow() throws RecognitionException {
 		Seq_flowContext _localctx = new Seq_flowContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_seq_flow);
+		enterRule(_localctx, 26, RULE_seq_flow);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74);
+			setState(111);
 			match(T__27);
 			}
 		}
@@ -713,11 +962,11 @@ public class DOTBPMParser extends Parser {
 
 	public final Msg_flowContext msg_flow() throws RecognitionException {
 		Msg_flowContext _localctx = new Msg_flowContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_msg_flow);
+		enterRule(_localctx, 28, RULE_msg_flow);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(76);
+			setState(113);
 			match(T__28);
 			}
 		}
@@ -738,6 +987,12 @@ public class DOTBPMParser extends Parser {
 		}
 		public IdContext id(int i) {
 			return getRuleContext(IdContext.class,i);
+		}
+		public List<Attr_valueContext> attr_value() {
+			return getRuleContexts(Attr_valueContext.class);
+		}
+		public Attr_valueContext attr_value(int i) {
+			return getRuleContext(Attr_valueContext.class,i);
 		}
 		public Attr_listContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -760,47 +1015,100 @@ public class DOTBPMParser extends Parser {
 
 	public final Attr_listContext attr_list() throws RecognitionException {
 		Attr_listContext _localctx = new Attr_listContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_attr_list);
+		enterRule(_localctx, 30, RULE_attr_list);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(86); 
+			setState(123); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(78);
+				setState(115);
 				id();
-				setState(81);
+				setState(118);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==T__29) {
 					{
-					setState(79);
+					setState(116);
 					match(T__29);
-					setState(80);
-					id();
+					setState(117);
+					attr_value();
 					}
 				}
 
-				setState(84);
+				setState(121);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==T__30) {
 					{
-					setState(83);
+					setState(120);
 					match(T__30);
 					}
 				}
 
 				}
 				}
-				setState(88); 
+				setState(125); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( _la==STRING || _la==ID );
+			} while ( _la==ID );
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Attr_valueContext extends ParserRuleContext {
+		public TerminalNode STRING() { return getToken(DOTBPMParser.STRING, 0); }
+		public TerminalNode NUMBER() { return getToken(DOTBPMParser.NUMBER, 0); }
+		public TerminalNode BOOLEAN() { return getToken(DOTBPMParser.BOOLEAN, 0); }
+		public Attr_valueContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_attr_value; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).enterAttr_value(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).exitAttr_value(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DOTBPMVisitor ) return ((DOTBPMVisitor<? extends T>)visitor).visitAttr_value(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Attr_valueContext attr_value() throws RecognitionException {
+		Attr_valueContext _localctx = new Attr_valueContext(_ctx, getState());
+		enterRule(_localctx, 32, RULE_attr_value);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(127);
+			_la = _input.LA(1);
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << STRING) | (1L << NUMBER) | (1L << BOOLEAN))) != 0)) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -816,7 +1124,6 @@ public class DOTBPMParser extends Parser {
 
 	public static class IdContext extends ParserRuleContext {
 		public TerminalNode ID() { return getToken(DOTBPMParser.ID, 0); }
-		public TerminalNode STRING() { return getToken(DOTBPMParser.STRING, 0); }
 		public IdContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -838,21 +1145,58 @@ public class DOTBPMParser extends Parser {
 
 	public final IdContext id() throws RecognitionException {
 		IdContext _localctx = new IdContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_id);
-		int _la;
+		enterRule(_localctx, 34, RULE_id);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(90);
-			_la = _input.LA(1);
-			if ( !(_la==STRING || _la==ID) ) {
-			_errHandler.recoverInline(this);
+			setState(129);
+			match(ID);
 			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class LinkContext extends ParserRuleContext {
+		public IdContext id() {
+			return getRuleContext(IdContext.class,0);
+		}
+		public LinkContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_link; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).enterLink(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DOTBPMListener ) ((DOTBPMListener)listener).exitLink(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DOTBPMVisitor ) return ((DOTBPMVisitor<? extends T>)visitor).visitLink(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final LinkContext link() throws RecognitionException {
+		LinkContext _localctx = new LinkContext(_ctx, getState());
+		enterRule(_localctx, 36, RULE_link);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(131);
+			match(T__31);
+			setState(132);
+			id();
 			}
 		}
 		catch (RecognitionException re) {
@@ -867,28 +1211,39 @@ public class DOTBPMParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3(_\4\2\t\2\4\3\t\3"+
-		"\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f"+
-		"\t\f\4\r\t\r\4\16\t\16\4\17\t\17\3\2\3\2\3\2\3\2\3\2\3\2\3\3\3\3\5\3\'"+
-		"\n\3\7\3)\n\3\f\3\16\3,\13\3\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\5\5\66\n"+
-		"\5\3\5\3\5\3\6\3\6\3\7\3\7\3\7\3\7\3\b\3\b\3\t\3\t\3\t\3\t\3\t\5\tG\n"+
-		"\t\3\n\3\n\3\13\3\13\3\f\3\f\3\r\3\r\3\16\3\16\3\16\5\16T\n\16\3\16\5"+
-		"\16W\n\16\6\16Y\n\16\r\16\16\16Z\3\17\3\17\3\17\2\2\20\2\4\6\b\n\f\16"+
-		"\20\22\24\26\30\32\34\2\6\3\2\n\f\3\2\17\32\4\2\22\24\34\34\4\2$$&&\2"+
-		"W\2\36\3\2\2\2\4*\3\2\2\2\6-\3\2\2\2\b/\3\2\2\2\n9\3\2\2\2\f;\3\2\2\2"+
-		"\16?\3\2\2\2\20F\3\2\2\2\22H\3\2\2\2\24J\3\2\2\2\26L\3\2\2\2\30N\3\2\2"+
-		"\2\32X\3\2\2\2\34\\\3\2\2\2\36\37\7\"\2\2\37 \5\34\17\2 !\7\3\2\2!\"\5"+
-		"\4\3\2\"#\7\4\2\2#\3\3\2\2\2$&\5\6\4\2%\'\7\5\2\2&%\3\2\2\2&\'\3\2\2\2"+
-		"\')\3\2\2\2($\3\2\2\2),\3\2\2\2*(\3\2\2\2*+\3\2\2\2+\5\3\2\2\2,*\3\2\2"+
-		"\2-.\5\b\5\2.\7\3\2\2\2/\60\7\6\2\2\60\61\5\n\6\2\61\62\7\7\2\2\62\65"+
-		"\5\34\17\2\63\64\7\b\2\2\64\66\5\32\16\2\65\63\3\2\2\2\65\66\3\2\2\2\66"+
-		"\67\3\2\2\2\678\7\t\2\28\t\3\2\2\29:\t\2\2\2:\13\3\2\2\2;<\7\r\2\2<=\5"+
-		"\16\b\2=>\7\16\2\2>\r\3\2\2\2?@\t\3\2\2@\17\3\2\2\2AB\7\33\2\2BG\5\22"+
-		"\n\2CD\5\f\7\2DE\7\17\2\2EG\3\2\2\2FA\3\2\2\2FC\3\2\2\2G\21\3\2\2\2HI"+
-		"\t\4\2\2I\23\3\2\2\2JK\7\35\2\2K\25\3\2\2\2LM\7\36\2\2M\27\3\2\2\2NO\7"+
-		"\37\2\2O\31\3\2\2\2PS\5\34\17\2QR\7 \2\2RT\5\34\17\2SQ\3\2\2\2ST\3\2\2"+
-		"\2TV\3\2\2\2UW\7!\2\2VU\3\2\2\2VW\3\2\2\2WY\3\2\2\2XP\3\2\2\2YZ\3\2\2"+
-		"\2ZX\3\2\2\2Z[\3\2\2\2[\33\3\2\2\2\\]\t\5\2\2]\35\3\2\2\2\t&*\65FSVZ";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3+\u0089\4\2\t\2\4"+
+		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
+		"\4\23\t\23\4\24\t\24\3\2\3\2\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\4\3\4\5\4\67\n\4\7\49\n\4\f\4\16\4<\13\4\3\5\3\5\3\5\5\5A\n\5\3\6\3\6"+
+		"\3\6\3\6\3\6\3\6\7\6I\n\6\f\6\16\6L\13\6\3\7\3\7\3\7\3\7\3\7\5\7S\n\7"+
+		"\3\b\3\b\3\b\3\b\3\b\3\b\5\b[\n\b\3\b\3\b\3\t\3\t\3\n\3\n\3\n\3\n\3\13"+
+		"\3\13\3\f\3\f\3\f\3\f\3\f\5\fl\n\f\3\r\3\r\3\16\3\16\3\17\3\17\3\20\3"+
+		"\20\3\21\3\21\3\21\5\21y\n\21\3\21\5\21|\n\21\6\21~\n\21\r\21\16\21\177"+
+		"\3\22\3\22\3\23\3\23\3\24\3\24\3\24\3\24\2\2\25\2\4\6\b\n\f\16\20\22\24"+
+		"\26\30\32\34\36 \"$&\2\6\3\2\n\f\3\2\17\32\4\2\22\24\34\34\3\2%\'\2\u0083"+
+		"\2(\3\2\2\2\4.\3\2\2\2\6:\3\2\2\2\b@\3\2\2\2\nB\3\2\2\2\fR\3\2\2\2\16"+
+		"T\3\2\2\2\20^\3\2\2\2\22`\3\2\2\2\24d\3\2\2\2\26k\3\2\2\2\30m\3\2\2\2"+
+		"\32o\3\2\2\2\34q\3\2\2\2\36s\3\2\2\2 }\3\2\2\2\"\u0081\3\2\2\2$\u0083"+
+		"\3\2\2\2&\u0085\3\2\2\2()\7#\2\2)*\5$\23\2*+\7\3\2\2+,\5\6\4\2,-\7\4\2"+
+		"\2-\3\3\2\2\2./\7$\2\2/\60\5$\23\2\60\61\7\3\2\2\61\62\5\6\4\2\62\63\7"+
+		"\4\2\2\63\5\3\2\2\2\64\66\5\b\5\2\65\67\7\5\2\2\66\65\3\2\2\2\66\67\3"+
+		"\2\2\2\679\3\2\2\28\64\3\2\2\29<\3\2\2\2:8\3\2\2\2:;\3\2\2\2;\7\3\2\2"+
+		"\2<:\3\2\2\2=A\5\16\b\2>A\5\4\3\2?A\5\n\6\2@=\3\2\2\2@>\3\2\2\2@?\3\2"+
+		"\2\2A\t\3\2\2\2BC\5\f\7\2CD\5\34\17\2DJ\5\f\7\2EF\5\34\17\2FG\5\f\7\2"+
+		"GI\3\2\2\2HE\3\2\2\2IL\3\2\2\2JH\3\2\2\2JK\3\2\2\2K\13\3\2\2\2LJ\3\2\2"+
+		"\2MS\5\16\b\2NS\5\4\3\2OS\5\26\f\2PS\5\22\n\2QS\5&\24\2RM\3\2\2\2RN\3"+
+		"\2\2\2RO\3\2\2\2RP\3\2\2\2RQ\3\2\2\2S\r\3\2\2\2TU\7\6\2\2UV\5\20\t\2V"+
+		"W\7\7\2\2WZ\5$\23\2XY\7\b\2\2Y[\5 \21\2ZX\3\2\2\2Z[\3\2\2\2[\\\3\2\2\2"+
+		"\\]\7\t\2\2]\17\3\2\2\2^_\t\2\2\2_\21\3\2\2\2`a\7\r\2\2ab\5\24\13\2bc"+
+		"\7\16\2\2c\23\3\2\2\2de\t\3\2\2e\25\3\2\2\2fg\7\33\2\2gl\5\30\r\2hi\5"+
+		"\22\n\2ij\7\17\2\2jl\3\2\2\2kf\3\2\2\2kh\3\2\2\2l\27\3\2\2\2mn\t\4\2\2"+
+		"n\31\3\2\2\2op\7\35\2\2p\33\3\2\2\2qr\7\36\2\2r\35\3\2\2\2st\7\37\2\2"+
+		"t\37\3\2\2\2ux\5$\23\2vw\7 \2\2wy\5\"\22\2xv\3\2\2\2xy\3\2\2\2y{\3\2\2"+
+		"\2z|\7!\2\2{z\3\2\2\2{|\3\2\2\2|~\3\2\2\2}u\3\2\2\2~\177\3\2\2\2\177}"+
+		"\3\2\2\2\177\u0080\3\2\2\2\u0080!\3\2\2\2\u0081\u0082\t\5\2\2\u0082#\3"+
+		"\2\2\2\u0083\u0084\7(\2\2\u0084%\3\2\2\2\u0085\u0086\7\"\2\2\u0086\u0087"+
+		"\5$\23\2\u0087\'\3\2\2\2\f\66:@JRZkx{\177";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

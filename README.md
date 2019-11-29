@@ -1,4 +1,5 @@
 # DotBPM Language
+DotBPM is a language for describing workflows. 
 
 ## Elements
 
@@ -17,7 +18,6 @@ Symbol | Type
 `--`   | Association
 
 ### Events
-
 Symbol | Event
 -------|------
 `(>)`  | Start 
@@ -34,7 +34,6 @@ Symbol | Event
 `(+)`  | Multiple Parallel
 
 ### Gateways
-
 Symbol | Gateway
 -------|--------
 `<X>`  | Exclusive (XOR)
