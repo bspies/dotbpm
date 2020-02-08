@@ -13,10 +13,16 @@
  */
 package dot.bpm.diagram;
 
-public interface DiagramElement {
-    /**
-     * Returns the parent of this element.
-     * @return The parent process or subprocess diagram
-     */
-    Diagram getParent();
+public class BoundaryEvent extends AbstractElement {
+
+    private boolean interrupting;
+
+    public BoundaryEvent(Diagram parent, boolean interrupting) {
+        super(parent);
+        this.interrupting = interrupting;
+    }
+
+    public boolean isInterrupting() {
+        return interrupting;
+    }
 }

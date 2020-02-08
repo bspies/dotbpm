@@ -13,10 +13,15 @@
  */
 package dot.bpm.diagram;
 
-public interface DiagramElement {
-    /**
-     * Returns the parent of this element.
-     * @return The parent process or subprocess diagram
-     */
-    Diagram getParent();
+public class AbstractElement implements DiagramElement {
+
+    private Diagram parent;
+
+    public AbstractElement(Diagram parent) {
+        this.parent = parent;
+    }
+
+    @Override public Diagram getParent() {
+        return parent;
+    }
 }
