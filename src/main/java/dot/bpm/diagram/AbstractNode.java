@@ -19,10 +19,17 @@ package dot.bpm.diagram;
 public abstract class AbstractNode extends AbstractElement implements Node {
 
     private Lane lane;
+    private String id;
 
-    public AbstractNode(Diagram parent, Lane lane) {
+    public AbstractNode(Diagram parent, Lane lane, String id) {
         super(parent);
         this.lane = lane;
+        this.id = id;
+    }
+
+    @Override
+    public String getId() {
+        return id;
     }
 
     @Override public Lane getLane() {

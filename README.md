@@ -1,27 +1,46 @@
 # DotBPM Language
 DotBPM is a language for describing workflows. 
 
+## Structure
+* Process
+```text
+process ID {
+  pool* | lane* | statements
+}
+```
+* Pools
+```text
+(( lane* ))
+```
+* Lanes
+```text
+|[ statement* ]|
+```
+
 ## Elements
 
 ### Core
 Symbol | Type
 -------|---------
 `[]`   | Activity
+`<>`   | Gateway
+`()`   | Event
 `{}`   | Group
 `#`    | Link
 
 ### Flows
 Symbol | Type
 -------|---------
-`=>`   | Sequence
-`->`   | Message
+`==>`  | Sequence
+`-->`  | Message
 `--`   | Association
 
 ### Events
 Symbol | Event
 -------|------
 `(>)`  | Start 
-`(-)`  | End
+`(/)`  | End
+`(-)`  | Terminate
 `(X)`  | Cancel
 `(<<)` | Compensation
 `(~)`  | Error
@@ -32,12 +51,13 @@ Symbol | Event
 `(^)`  | Escalation
 `(*)`  | Multiple
 `(+)`  | Multiple Parallel
+`(_)`  | None
 
 ### Gateways
 Symbol | Gateway
 -------|--------
-`<X>`  | Exclusive (XOR)
-`<O>`  | Inclusive (OR)
-`<+>`  | Parallel (AND)
+`<XOR>`| Exclusive (XOR)
+`<OR>` | Inclusive (OR)
+`<AND>`| Parallel (AND)
 `<*>`  | Complex
 `<()>` | Event-Based

@@ -13,15 +13,33 @@
  */
 package dot.bpm.diagram;
 
+/**
+ *
+ */
 public class BoundaryEvent extends AbstractElement {
 
-    private boolean interrupting;
+    private final boolean interrupting;
+    private final ActivityNode activity;
 
-    public BoundaryEvent(Diagram parent, boolean interrupting) {
-        super(parent);
+    public BoundaryEvent(ActivityNode activity, boolean interrupting) {
+        super(activity.getParent());
+        this.activity = activity;
         this.interrupting = interrupting;
     }
 
+    /**
+     * The activity to which this event is attached.
+     * @return The attached activity
+     */
+    public ActivityNode getActivity() {
+        return activity;
+    }
+
+    /**
+     * Does activation of this event interrupt the attached
+     * activity?
+     * @return True if event if interrupting
+     */
     public boolean isInterrupting() {
         return interrupting;
     }

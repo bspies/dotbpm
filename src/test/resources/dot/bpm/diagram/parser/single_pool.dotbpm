@@ -1,0 +1,4 @@
+/* Process with a single pool (no lanes) */
+process single_pool {
+   (( lane1 | (> start) ==> [user t1] ==> [user t2] ==> (/ end) ))
+}

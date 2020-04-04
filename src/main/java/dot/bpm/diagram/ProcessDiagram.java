@@ -1,6 +1,7 @@
 package dot.bpm.diagram;
 
 import java.util.Collection;
+import java.util.Optional;
 
 public class ProcessDiagram implements Diagram {
 
@@ -28,8 +29,13 @@ public class ProcessDiagram implements Diagram {
     }
 
     @Override
-    public void addNode(Node node) {
-        delegate.addNode(node);
+    public boolean addNode(Node node) {
+        return delegate.addNode(node);
+    }
+
+    @Override
+    public Optional<Node> findNode(String id) {
+        return delegate.findNode(id);
     }
 
     @Override
@@ -38,12 +44,12 @@ public class ProcessDiagram implements Diagram {
     }
 
     @Override
-    public void addFlow(SequenceFlow flow) {
-        delegate.addFlow(flow);
+    public boolean addFlow(SequenceFlow flow) {
+        return delegate.addFlow(flow);
     }
 
     @Override
-    public void addFlow(Node source, Node target) {
-        delegate.addFlow(source, target);
+    public boolean addFlow(Node source, Node target) {
+        return delegate.addFlow(source, target);
     }
 }

@@ -1,0 +1,8 @@
+/* A fork followed by a join */
+process fork_join {
+   (> start) ==> [user t1] ==>
+   <fork gate1 | out: #[t2], #[t3]>
+   [user t2] ==> #<g2>
+   [user t3] ==> #<g2>
+   <join gate2> ==> (/ end)
+}

@@ -13,7 +13,10 @@
  */
 package dot.bpm.diagram;
 
-public class MessageFlow implements DiagramElement {
+/**
+ * A message flow.
+ */
+public class MessageFlow {
 
     private Node source, target;
 
@@ -24,15 +27,19 @@ public class MessageFlow implements DiagramElement {
         this.target = target;
     }
 
+    /**
+     * The source of the message.
+     * @return The flow source
+     */
     public Node getSource() {
         return source;
     }
 
+    /**
+     * The target of the message.
+     * @return The flow target
+     */
     public Node getTarget() {
         return target;
-    }
-
-    @Override public Diagram getParent() {
-        return source.getParent();
     }
 }

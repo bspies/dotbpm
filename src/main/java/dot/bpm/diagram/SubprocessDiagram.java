@@ -14,6 +14,7 @@
 package dot.bpm.diagram;
 
 import java.util.Collection;
+import java.util.Optional;
 
 /**
  * Diagram for a sub-process.
@@ -22,8 +23,8 @@ public class SubprocessDiagram extends AbstractNode implements Diagram {
 
     private final DiagramDelegate delegate = new DiagramDelegate();
 
-    public SubprocessDiagram(Diagram parent, Lane lane) {
-        super(parent, lane);
+    public SubprocessDiagram(Diagram parent, Lane lane, String id) {
+        super(parent, lane, id);
     }
 
     @Override public Collection<Node> getNodes() {
@@ -34,16 +35,21 @@ public class SubprocessDiagram extends AbstractNode implements Diagram {
         return delegate.getSequenceFlows();
     }
 
-    @Override public void addNode(Node node) {
-        delegate.addNode(node);
+    @Override public boolean addNode(Node node) {
+        return delegate.addNode(node);
     }
 
-    @Override public void addFlow(SequenceFlow flow) {
-        delegate.addFlow(flow);
+    @Override
+    public Optional<Node> findNode(String id) {
+        return delegate.findNode(id);
     }
 
-    @Override public void addFlow(Node source, Node target) {
-        delegate.addFlow(source, target);
+    @Override public boolean addFlow(SequenceFlow flow) {
+        return delegate.addFlow(flow);
+    }
+
+    @Override public boolean addFlow(Node source, Node target) {
+        return delegate.addFlow(source, target);
     }
 
     @Override public Diagram getParent() {

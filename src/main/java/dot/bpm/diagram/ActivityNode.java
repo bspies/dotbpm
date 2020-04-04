@@ -14,7 +14,7 @@
 package dot.bpm.diagram;
 
 public abstract class ActivityNode extends AbstractNode {
-    public ActivityNode(Diagram parent, Lane lane) {
-        super(parent, lane);
+    public ActivityNode(Diagram parent, Lane lane, String id) {
+        super(parent, lane, id);
     }
 }

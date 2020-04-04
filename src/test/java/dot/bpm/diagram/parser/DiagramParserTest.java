@@ -15,7 +15,7 @@ package dot.bpm.diagram.parser;
 
 import dot.bpm.diagram.Node;
 import dot.bpm.diagram.ProcessDiagram;
-import dot.bpm.diagram.TaskNode;
+import dot.bpm.diagram.UserTaskNode;
 import dot.bpm.parser.DiagramParser;
 import org.junit.Test;
 
@@ -44,7 +44,7 @@ public class DiagramParserTest {
     }
 
     @Test
-    public void parseSingleActivity() throws IOException {
+    public void parseSingleTask() throws IOException {
         ProcessDiagram diagram = parseDiagram("single_task.dotbpm");
         assertThat(diagram.getNodes())
                 .as("Diagram should have single node")
@@ -52,28 +52,62 @@ public class DiagramParserTest {
         Node node = diagram.getNodes().stream().findFirst().get();
         assertThat(node)
                 .as("Node should be a task node")
-                .isInstanceOf(TaskNode.class);
+                .isInstanceOf(UserTaskNode.class);
     }
 
     @Test
-    public void parseTwoActivitiesWithSequence() throws IOException {
-        ProcessDiagram diagram = parseDiagram("sequence_2.dotbpm");
+    public void parseSequence() throws IOException {
+        ProcessDiagram diagram = parseDiagram("sequence_2activities.dotbpm");
         assertThat(diagram.getNodes())
-                .as("Diagram should have two nodes")
-                .hasSize(2);
+                .as("Diagram should have 4 nodes")
+                .hasSize(4);
         assertThat(diagram.getSequenceFlows())
-                .as("Diagram should have one sequence flow")
-                .hasSize(1);
-    }
-
-    @Test
-    public void parseThreeActivitiesWithSequence() throws IOException {
-        ProcessDiagram diagram = parseDiagram("sequence_3.dotbpm");
-        assertThat(diagram.getNodes())
-                .as("Diagram should have three nodes")
+                .as("Diagram should have 3 sequence flows")
                 .hasSize(3);
+    }
+
+    @Test
+    public void parseSequenceWithThreeActivities() throws IOException {
+        ProcessDiagram diagram = parseDiagram("sequence_3activities.dotbpm");
+        assertThat(diagram.getNodes())
+                .as("Diagram should have 5 nodes")
+                .hasSize(5);
         assertThat(diagram.getSequenceFlows())
-                .as("Diagram should have two sequence flows")
-                .hasSize(2);
+                .as("Diagram should have 4 sequence flows")
+                .hasSize(4);
+    }
+
+    @Test
+    public void parseMultipleSequences() throws Exception {
+        ProcessDiagram diagram = parseDiagram("multiple_sequences.dotbpm");
+        assertThat(diagram.getNodes())
+                .as("Diagram should have 6 nodes")
+                .hasSize(6);
+    }
+
+    @Test
+    public void parsePoolWithLanes() throws Exception {
+        ProcessDiagram diagram = parseDiagram("pool_2lanes.dotbpm");
+        assertThat(diagram.getNodes())
+                .as("Diagram should have 6 nodes")
+                .hasSize(6);
+    }
+
+    @Test
+    public void parseSinglePool() throws Exception {
+        ProcessDiagram diagram = parseDiagram("single_pool.dotbpm");
+        assertThat(diagram.getNodes())
+                .as("Diagram should have 4 nodes")
+                .hasSize(4);
+    }
+
+    @Test
+    public void parseForkingProcess() throws Exception {
+        ProcessDiagram diagram = parseDiagram("fork_gateway.dotbpm");
+    }
+
+    @Test
+    public void parseForkJoinProcess() throws Exception {
+        ProcessDiagram diagram = parseDiagram("forkjoin_gateway.dotbpm");
     }
 }

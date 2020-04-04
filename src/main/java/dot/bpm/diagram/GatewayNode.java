@@ -14,10 +14,15 @@
 package dot.bpm.diagram;
 
 public class GatewayNode extends AbstractNode {
-    public GatewayNode(Diagram parent, Lane lane) {
-        super(parent, lane);
+
+    private final GatewayType gatewayType;
+
+    public GatewayNode(Diagram parent, Lane lane, GatewayType gatewayType, String id) {
+        super(parent, lane, id);
+        this.gatewayType = gatewayType;
     }
 
-    public enum TYPE { EXCLUSIVE, INCLUSIVE, PARALLEL, COMPLEX, EVENT }
-
+    public GatewayType getGatewayType() {
+        return gatewayType;
+    }
 }

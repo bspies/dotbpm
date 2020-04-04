@@ -35,6 +35,7 @@ public class DiagramParser {
         DiagramParseListener listener = new DiagramParseListener();
         parser.addParseListener(listener);
         // error handlers
+
         ParseTree tree = parser.process();
         return listener.getProcessDiagram();
     }

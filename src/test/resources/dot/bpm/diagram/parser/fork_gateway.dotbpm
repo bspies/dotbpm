@@ -1,0 +1,7 @@
+/* Sequence with a parallel diverging flow */
+process fork_diverge {
+   (> start) ==> [user t1] ==>
+   <fork gate1 | out: #[t2], #[t3]>
+   [user t2] ==> (/ end1)
+   [user t3] ==> (/ end2)
+}

@@ -13,16 +13,24 @@
  */
 package dot.bpm.diagram;
 
-public enum TriggerType {
-    COMPENSATION,
-    CONDITIONAL,
-    ERROR,
-    ESCALATION,
-    MESSAGE,
-    MULTIPLE,
-    MULTIPLE_PARALLEL,
-    NONE,
-    SIGNAL,
-    TERMINATE,
-    TIMER
+/**
+ * Specification of an event type and category.
+ */
+public class EventSpec {
+
+    private final EventCategory eventCategory;
+    private final EventType eventType;
+
+    public EventSpec(EventCategory eventCategory, EventType eventType) {
+        this.eventCategory = eventCategory;
+        this.eventType = eventType;
+    }
+
+    public EventCategory getEventCategory() {
+        return eventCategory;
+    }
+
+    public EventType getEventType() {
+        return eventType;
+    }
 }

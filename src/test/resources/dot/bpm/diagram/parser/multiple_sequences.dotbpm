@@ -1,0 +1,5 @@
+/* A process containing multiple sequence statements */
+process multiple_sequences {
+   (> start) ==> [user t1] ==> [user t2] ==> #[t3]
+   [user t3] ==> [user t4] ==> (/ end)
+}

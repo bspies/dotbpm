@@ -13,17 +13,27 @@
  */
 package dot.bpm.diagram;
 
+/**
+ * Represents a subdivision of a {@link Pool}, e.g. a
+ * particular role within that pool.
+ */
 public class Lane extends AbstractElement {
 
     private String name;
+    private Pool pool;
 
     public Lane(Pool pool, String name) {
         super(pool.getParent());
         this.name = name;
+        this.pool = pool;
         pool.addLane(this);
     }
 
     public String getName() {
         return name;
+    }
+
+    public Pool getPool() {
+        return pool;
     }
 }

@@ -13,12 +13,8 @@
  */
 package dot.bpm.diagram;
 
-/**
- * Represents a human activity (task) in the process.
- */
-public class TaskNode extends ActivityNode {
-
-    public TaskNode(Diagram parent, Lane lane) {
-        super(parent, lane);
-    }
+public enum EventCategory {
+    START,
+    INTERMEDIATE,
+    END
 }

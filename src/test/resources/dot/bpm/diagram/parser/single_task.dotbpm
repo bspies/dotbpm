@@ -1,3 +1,4 @@
+/* Process with a single task */
 process simple_task {
-   [task:t1]
+   [user t1 | foo="bar"]
 }

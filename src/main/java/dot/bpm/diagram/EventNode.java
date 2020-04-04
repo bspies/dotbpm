@@ -18,7 +18,18 @@ package dot.bpm.diagram;
  */
 public class EventNode extends AbstractNode {
 
-    public EventNode(Diagram parent, Lane lane, EventType eventType, TriggerType triggerType) {
-        super(parent, lane);
+    private final EventSpec eventSpec;
+
+    public EventNode(Diagram parent, Lane lane, EventSpec eventSpec, String id) {
+        super(parent, lane, id);
+        this.eventSpec = eventSpec;
+    }
+
+    public EventCategory getCategory() {
+        return this.eventSpec.getEventCategory();
+    }
+
+    public EventType getEventType() {
+        return this.eventSpec.getEventType();
     }
 }

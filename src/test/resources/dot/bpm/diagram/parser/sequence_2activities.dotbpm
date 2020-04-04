@@ -1,0 +1,4 @@
+/* Process flow with a single sequence */
+process simple_flow {
+   (> start) ==> [user t1] ==> [user t2] ==> (/ end)
+}

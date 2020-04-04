@@ -15,7 +15,7 @@ package dot.bpm.diagram;
 
 public class ScriptNode extends ActivityNode {
 
-    public ScriptNode(Diagram parent, Lane lane) {
-        super(parent, lane);
+    public ScriptNode(Diagram parent, Lane lane, String id) {
+        super(parent, lane, id);
     }
 }

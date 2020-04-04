@@ -1,4 +1,4 @@
-// Generated from E:/Brennan/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.7.2
+// Generated from E:/Brennan/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.8
 package dot.bpm.parser.antlr;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -27,6 +27,46 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSubprocess(DOTBPMParser.SubprocessContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#pool_list}.
+	 * @param ctx the parse tree
+	 */
+	void enterPool_list(DOTBPMParser.Pool_listContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#pool_list}.
+	 * @param ctx the parse tree
+	 */
+	void exitPool_list(DOTBPMParser.Pool_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#pool}.
+	 * @param ctx the parse tree
+	 */
+	void enterPool(DOTBPMParser.PoolContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#pool}.
+	 * @param ctx the parse tree
+	 */
+	void exitPool(DOTBPMParser.PoolContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#lane_list}.
+	 * @param ctx the parse tree
+	 */
+	void enterLane_list(DOTBPMParser.Lane_listContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#lane_list}.
+	 * @param ctx the parse tree
+	 */
+	void exitLane_list(DOTBPMParser.Lane_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#lane}.
+	 * @param ctx the parse tree
+	 */
+	void enterLane(DOTBPMParser.LaneContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#lane}.
+	 * @param ctx the parse tree
+	 */
+	void exitLane(DOTBPMParser.LaneContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#stmt_list}.
 	 * @param ctx the parse tree
@@ -58,15 +98,15 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 */
 	void exitSequence(DOTBPMParser.SequenceContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DOTBPMParser#flow_element}.
+	 * Enter a parse tree produced by {@link DOTBPMParser#sequence_elem}.
 	 * @param ctx the parse tree
 	 */
-	void enterFlow_element(DOTBPMParser.Flow_elementContext ctx);
+	void enterSequence_elem(DOTBPMParser.Sequence_elemContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DOTBPMParser#flow_element}.
+	 * Exit a parse tree produced by {@link DOTBPMParser#sequence_elem}.
 	 * @param ctx the parse tree
 	 */
-	void exitFlow_element(DOTBPMParser.Flow_elementContext ctx);
+	void exitSequence_elem(DOTBPMParser.Sequence_elemContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#activity}.
 	 * @param ctx the parse tree
@@ -78,15 +118,25 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 */
 	void exitActivity(DOTBPMParser.ActivityContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DOTBPMParser#activity_type}.
+	 * Enter a parse tree produced by {@link DOTBPMParser#task}.
 	 * @param ctx the parse tree
 	 */
-	void enterActivity_type(DOTBPMParser.Activity_typeContext ctx);
+	void enterTask(DOTBPMParser.TaskContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DOTBPMParser#activity_type}.
+	 * Exit a parse tree produced by {@link DOTBPMParser#task}.
 	 * @param ctx the parse tree
 	 */
-	void exitActivity_type(DOTBPMParser.Activity_typeContext ctx);
+	void exitTask(DOTBPMParser.TaskContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#task_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterTask_type(DOTBPMParser.Task_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#task_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitTask_type(DOTBPMParser.Task_typeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#event}.
 	 * @param ctx the parse tree
@@ -108,6 +158,16 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 */
 	void exitEvent_type(DOTBPMParser.Event_typeContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#boundary_event}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoundary_event(DOTBPMParser.Boundary_eventContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#boundary_event}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoundary_event(DOTBPMParser.Boundary_eventContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#gateway}.
 	 * @param ctx the parse tree
 	 */
@@ -118,15 +178,115 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 */
 	void exitGateway(DOTBPMParser.GatewayContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DOTBPMParser#gateway_type}.
+	 * Enter a parse tree produced by {@link DOTBPMParser#fork_diverge}.
 	 * @param ctx the parse tree
 	 */
-	void enterGateway_type(DOTBPMParser.Gateway_typeContext ctx);
+	void enterFork_diverge(DOTBPMParser.Fork_divergeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DOTBPMParser#gateway_type}.
+	 * Exit a parse tree produced by {@link DOTBPMParser#fork_diverge}.
 	 * @param ctx the parse tree
 	 */
-	void exitGateway_type(DOTBPMParser.Gateway_typeContext ctx);
+	void exitFork_diverge(DOTBPMParser.Fork_divergeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#event_diverge}.
+	 * @param ctx the parse tree
+	 */
+	void enterEvent_diverge(DOTBPMParser.Event_divergeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#event_diverge}.
+	 * @param ctx the parse tree
+	 */
+	void exitEvent_diverge(DOTBPMParser.Event_divergeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#condition_diverge}.
+	 * @param ctx the parse tree
+	 */
+	void enterCondition_diverge(DOTBPMParser.Condition_divergeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#condition_diverge}.
+	 * @param ctx the parse tree
+	 */
+	void exitCondition_diverge(DOTBPMParser.Condition_divergeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#and_converge}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnd_converge(DOTBPMParser.And_convergeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#and_converge}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnd_converge(DOTBPMParser.And_convergeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#or_converge}.
+	 * @param ctx the parse tree
+	 */
+	void enterOr_converge(DOTBPMParser.Or_convergeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#or_converge}.
+	 * @param ctx the parse tree
+	 */
+	void exitOr_converge(DOTBPMParser.Or_convergeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#inflows}.
+	 * @param ctx the parse tree
+	 */
+	void enterInflows(DOTBPMParser.InflowsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#inflows}.
+	 * @param ctx the parse tree
+	 */
+	void exitInflows(DOTBPMParser.InflowsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#outflows}.
+	 * @param ctx the parse tree
+	 */
+	void enterOutflows(DOTBPMParser.OutflowsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#outflows}.
+	 * @param ctx the parse tree
+	 */
+	void exitOutflows(DOTBPMParser.OutflowsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#cond_outflows}.
+	 * @param ctx the parse tree
+	 */
+	void enterCond_outflows(DOTBPMParser.Cond_outflowsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#cond_outflows}.
+	 * @param ctx the parse tree
+	 */
+	void exitCond_outflows(DOTBPMParser.Cond_outflowsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#cond_outflow}.
+	 * @param ctx the parse tree
+	 */
+	void enterCond_outflow(DOTBPMParser.Cond_outflowContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#cond_outflow}.
+	 * @param ctx the parse tree
+	 */
+	void exitCond_outflow(DOTBPMParser.Cond_outflowContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#association}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssociation(DOTBPMParser.AssociationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#association}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssociation(DOTBPMParser.AssociationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#artifact}.
+	 * @param ctx the parse tree
+	 */
+	void enterArtifact(DOTBPMParser.ArtifactContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#artifact}.
+	 * @param ctx the parse tree
+	 */
+	void exitArtifact(DOTBPMParser.ArtifactContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#assoc_flow}.
 	 * @param ctx the parse tree
@@ -138,25 +298,65 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 */
 	void exitAssoc_flow(DOTBPMParser.Assoc_flowContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DOTBPMParser#seq_flow}.
+	 * Enter a parse tree produced by {@link DOTBPMParser#dir_assoc}.
 	 * @param ctx the parse tree
 	 */
-	void enterSeq_flow(DOTBPMParser.Seq_flowContext ctx);
+	void enterDir_assoc(DOTBPMParser.Dir_assocContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DOTBPMParser#seq_flow}.
+	 * Exit a parse tree produced by {@link DOTBPMParser#dir_assoc}.
 	 * @param ctx the parse tree
 	 */
-	void exitSeq_flow(DOTBPMParser.Seq_flowContext ctx);
+	void exitDir_assoc(DOTBPMParser.Dir_assocContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DOTBPMParser#msg_flow}.
+	 * Enter a parse tree produced by {@link DOTBPMParser#undir_assoc}.
 	 * @param ctx the parse tree
 	 */
-	void enterMsg_flow(DOTBPMParser.Msg_flowContext ctx);
+	void enterUndir_assoc(DOTBPMParser.Undir_assocContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DOTBPMParser#msg_flow}.
+	 * Exit a parse tree produced by {@link DOTBPMParser#undir_assoc}.
 	 * @param ctx the parse tree
 	 */
-	void exitMsg_flow(DOTBPMParser.Msg_flowContext ctx);
+	void exitUndir_assoc(DOTBPMParser.Undir_assocContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#sequence_flow}.
+	 * @param ctx the parse tree
+	 */
+	void enterSequence_flow(DOTBPMParser.Sequence_flowContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#sequence_flow}.
+	 * @param ctx the parse tree
+	 */
+	void exitSequence_flow(DOTBPMParser.Sequence_flowContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#message_flow}.
+	 * @param ctx the parse tree
+	 */
+	void enterMessage_flow(DOTBPMParser.Message_flowContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#message_flow}.
+	 * @param ctx the parse tree
+	 */
+	void exitMessage_flow(DOTBPMParser.Message_flowContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#input_set}.
+	 * @param ctx the parse tree
+	 */
+	void enterInput_set(DOTBPMParser.Input_setContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#input_set}.
+	 * @param ctx the parse tree
+	 */
+	void exitInput_set(DOTBPMParser.Input_setContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#output_set}.
+	 * @param ctx the parse tree
+	 */
+	void enterOutput_set(DOTBPMParser.Output_setContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#output_set}.
+	 * @param ctx the parse tree
+	 */
+	void exitOutput_set(DOTBPMParser.Output_setContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#attr_list}.
 	 * @param ctx the parse tree
@@ -168,6 +368,16 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 */
 	void exitAttr_list(DOTBPMParser.Attr_listContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#attribute}.
+	 * @param ctx the parse tree
+	 */
+	void enterAttribute(DOTBPMParser.AttributeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#attribute}.
+	 * @param ctx the parse tree
+	 */
+	void exitAttribute(DOTBPMParser.AttributeContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#attr_value}.
 	 * @param ctx the parse tree
 	 */
@@ -177,6 +387,36 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAttr_value(DOTBPMParser.Attr_valueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#param_list}.
+	 * @param ctx the parse tree
+	 */
+	void enterParam_list(DOTBPMParser.Param_listContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#param_list}.
+	 * @param ctx the parse tree
+	 */
+	void exitParam_list(DOTBPMParser.Param_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#param}.
+	 * @param ctx the parse tree
+	 */
+	void enterParam(DOTBPMParser.ParamContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#param}.
+	 * @param ctx the parse tree
+	 */
+	void exitParam(DOTBPMParser.ParamContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#param_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterParam_type(DOTBPMParser.Param_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#param_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitParam_type(DOTBPMParser.Param_typeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#id}.
 	 * @param ctx the parse tree
@@ -188,6 +428,26 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 */
 	void exitId(DOTBPMParser.IdContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#link_list}.
+	 * @param ctx the parse tree
+	 */
+	void enterLink_list(DOTBPMParser.Link_listContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#link_list}.
+	 * @param ctx the parse tree
+	 */
+	void exitLink_list(DOTBPMParser.Link_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#event_links}.
+	 * @param ctx the parse tree
+	 */
+	void enterEvent_links(DOTBPMParser.Event_linksContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#event_links}.
+	 * @param ctx the parse tree
+	 */
+	void exitEvent_links(DOTBPMParser.Event_linksContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#link}.
 	 * @param ctx the parse tree
 	 */
@@ -197,4 +457,64 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLink(DOTBPMParser.LinkContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#activity_link}.
+	 * @param ctx the parse tree
+	 */
+	void enterActivity_link(DOTBPMParser.Activity_linkContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#activity_link}.
+	 * @param ctx the parse tree
+	 */
+	void exitActivity_link(DOTBPMParser.Activity_linkContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#event_link}.
+	 * @param ctx the parse tree
+	 */
+	void enterEvent_link(DOTBPMParser.Event_linkContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#event_link}.
+	 * @param ctx the parse tree
+	 */
+	void exitEvent_link(DOTBPMParser.Event_linkContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#gateway_link}.
+	 * @param ctx the parse tree
+	 */
+	void enterGateway_link(DOTBPMParser.Gateway_linkContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#gateway_link}.
+	 * @param ctx the parse tree
+	 */
+	void exitGateway_link(DOTBPMParser.Gateway_linkContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#pool_link}.
+	 * @param ctx the parse tree
+	 */
+	void enterPool_link(DOTBPMParser.Pool_linkContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#pool_link}.
+	 * @param ctx the parse tree
+	 */
+	void exitPool_link(DOTBPMParser.Pool_linkContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#process_link}.
+	 * @param ctx the parse tree
+	 */
+	void enterProcess_link(DOTBPMParser.Process_linkContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#process_link}.
+	 * @param ctx the parse tree
+	 */
+	void exitProcess_link(DOTBPMParser.Process_linkContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression(DOTBPMParser.ExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression(DOTBPMParser.ExpressionContext ctx);
 }

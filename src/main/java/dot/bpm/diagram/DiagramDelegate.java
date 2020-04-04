@@ -13,10 +13,7 @@
  */
 package dot.bpm.diagram;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * A delegate implementation of the Diagram interface, for use by
@@ -24,12 +21,12 @@ import java.util.Set;
  */
 class DiagramDelegate implements Diagram {
 
-    private final Set<Node> nodes = new HashSet<>();
+    private final Map<String,Node> nodes = new HashMap<>();
     private final Set<SequenceFlow> sequenceFlows = new HashSet<>();
 
     @Override
     public Collection<Node> getNodes() {
-        return Collections.unmodifiableSet(nodes);
+        return Collections.unmodifiableCollection(nodes.values());
     }
 
     @Override
@@ -38,19 +35,24 @@ class DiagramDelegate implements Diagram {
     }
 
     @Override
-    public void addNode(Node node) {
-        nodes.add(node);
+    public boolean addNode(Node node) {
+        return nodes.putIfAbsent(node.getId(), node) == null;
     }
 
     @Override
-    public void addFlow(SequenceFlow flow) {
-        nodes.add(flow.getSource());
-        nodes.add(flow.getTarget());
-        sequenceFlows.add(flow);
+    public Optional<Node> findNode(String id) {
+        return Optional.ofNullable(nodes.get(id));
     }
 
     @Override
-    public void addFlow(Node source, Node target) {
-        addFlow(new SequenceFlow(source, target));
+    public boolean addFlow(SequenceFlow flow) {
+        addNode(flow.getSource());
+        addNode(flow.getTarget());
+        return sequenceFlows.add(flow);
+    }
+
+    @Override
+    public boolean addFlow(Node source, Node target) {
+        return addFlow(new SequenceFlow(source, target));
     }
 }

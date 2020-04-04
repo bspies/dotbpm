@@ -1,0 +1,7 @@
+/* A process containing a pool with two lanes */
+process review {
+   (( accounting; foo="bar" |
+      |[ manager  | (> start) ==> [user t1] ==> [user t2] ==> #[t3]  ]|
+      |[ employee | [user t3] ==> [user t4] ==> (/ end)              ]|
+   ))
+}

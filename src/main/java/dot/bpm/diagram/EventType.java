@@ -13,8 +13,51 @@
  */
 package dot.bpm.diagram;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+/**
+ * An enumeration of process event types.
+ */
 public enum EventType {
-    START,
-    INTERMEDIATE,
-    END
+    COMPENSATION("<<"),
+    CONDITIONAL("?"),
+    CANCEL("X"),
+    END("/"),
+    ERROR("~"),
+    ESCALATION("^"),
+    MESSAGE("@"),
+    MULTIPLE("*"),
+    MULTIPLE_PARALLEL("+"),
+    NONE("_"),
+    SIGNAL("!"),
+    START(">"),
+    TERMINATE("-"),
+    TIMER("..");
+
+    private static final Map<String,EventType> lookup = createLookup();
+    private final String symbol;
+
+    EventType(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public static EventType of(String symbol) {
+        EventType eventType = lookup.get(symbol);
+        if (eventType == null) {
+            throw new IllegalArgumentException("Symbol '" + symbol + "' is not a valid event type");
+        }
+        return eventType;
+    }
+
+    private String getSymbol() {
+        return symbol;
+    }
+
+    private static Map<String,EventType> createLookup() {
+        return Arrays.stream(EventType.values())
+                .collect(Collectors.toMap(EventType::getSymbol, Function.identity()));
+    }
 }

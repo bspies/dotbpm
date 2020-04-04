@@ -17,7 +17,7 @@ import java.util.Collection;
 import java.util.HashSet;
 
 /**
- * Describes an organization participating in the workflow.
+ * Describes a participant in the workflow.
  */
 public class Pool extends AbstractElement {
 
