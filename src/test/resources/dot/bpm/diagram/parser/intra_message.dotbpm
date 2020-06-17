@@ -1,0 +1,10 @@
+/* Intra-process message passing */
+process intraProcessMessage {
+   (( pool_1 |
+      (> start) ==> (throw:@ send) ==> [user t1] ==> (/ end1)
+      #(send) --> #(receive)
+   ))
+   (( pool_2 |
+      (catch:@ receive) ==> [user t2] ==> (/ end2)
+   ))
+}

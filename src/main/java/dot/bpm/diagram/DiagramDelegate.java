@@ -13,20 +13,36 @@
  */
 package dot.bpm.diagram;
 
+import dot.bpm.diagram.data.DataFlow;
+
 import java.util.*;
 
 /**
  * A delegate implementation of the Diagram interface, for use by
  * the process and subprocess diagrams.
+ *
+ * @author Brennan Spies
  */
-class DiagramDelegate implements Diagram {
+public class DiagramDelegate implements Diagram {
 
-    private final Map<String,Node> nodes = new HashMap<>();
-    private final Set<SequenceFlow> sequenceFlows = new HashSet<>();
+    private final Map<String, FlowNode> nodes;
+    private final Set<SequenceFlow> sequenceFlows;
+    private final Set<DataFlow> dataFlows;
+
+    public DiagramDelegate() {
+        nodes = new HashMap<>();
+        dataFlows = new HashSet<>();
+        sequenceFlows = new HashSet<>();
+    }
 
     @Override
-    public Collection<Node> getNodes() {
+    public Collection<FlowNode> getNodes() {
         return Collections.unmodifiableCollection(nodes.values());
+    }
+
+    @Override
+    public Collection<DataFlow> getDataFlows() {
+        return Collections.unmodifiableCollection(dataFlows);
     }
 
     @Override
@@ -34,25 +50,29 @@ class DiagramDelegate implements Diagram {
         return Collections.unmodifiableSet(sequenceFlows);
     }
 
-    @Override
-    public boolean addNode(Node node) {
+    public boolean addNode(FlowNode node) {
         return nodes.putIfAbsent(node.getId(), node) == null;
     }
 
     @Override
-    public Optional<Node> findNode(String id) {
+    public Optional<FlowNode> findNode(String id) {
+        if (id == null) {
+            throw new IllegalArgumentException("The 'id' argument cannot be null");
+        }
         return Optional.ofNullable(nodes.get(id));
     }
 
-    @Override
-    public boolean addFlow(SequenceFlow flow) {
+    public boolean addDataFlow(DataFlow dataFlow) {
+        return dataFlows.add(dataFlow);
+    }
+
+    public boolean addSequenceFlow(SequenceFlow flow) {
         addNode(flow.getSource());
         addNode(flow.getTarget());
         return sequenceFlows.add(flow);
     }
 
-    @Override
-    public boolean addFlow(Node source, Node target) {
-        return addFlow(new SequenceFlow(source, target));
+    public boolean addSequenceFlow(FlowNode source, FlowNode target) {
+        return addSequenceFlow(new SequenceFlow(source, target));
     }
 }

@@ -13,27 +13,48 @@
  */
 package dot.bpm.diagram;
 
+import dot.bpm.diagram.messages.Messageable;
+
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.Collections;
 
 /**
  * Describes a participant in the workflow.
+ *
+ * @author Brennan Spies
  */
-public class Pool extends AbstractElement {
+public class Pool implements FlowContainer, Messageable {
 
-    private boolean main = false;
-    private String name;
-    private Collection<Lane> lanes;
+    private final boolean main;
+    private final String id, name;
+    private final Collection<Lane> lanes;
 
-    public Pool(Diagram parent, String name) {
-        super(parent);
-        this.name = name;
-        this.lanes = new HashSet<>();
+    public Pool(String id, String name, Collection<Lane> lanes) {
+        this(id, name, lanes, false);
     }
 
-    public Pool(Diagram diagram, String name, boolean isMain) {
-        this(diagram, name);
-        setMain(isMain);
+    public Pool(String id, String name, Collection<Lane> lanes, boolean isMain) {
+        this.id = id;
+        this.name = name;
+        this.lanes = Collections.unmodifiableCollection(lanes);
+        this.main = isMain;
+    }
+
+    /**
+     * The pool id.
+     * @return The pool's id
+     */
+    @Override public String getId() {
+        return id;
+    }
+
+    /**
+     * The pool name.
+     * @return The pool's name
+     */
+    @Override
+    public String getName() {
+        return name;
     }
 
     /**
@@ -45,36 +66,10 @@ public class Pool extends AbstractElement {
     }
 
     /**
-     * Sets the main flag to indicate whether or not
-     * this pool is the main one.
-     * @param isMainPool True if this pool is main
-     */
-    public void setMain(boolean isMainPool) {
-        this.main = isMainPool;
-    }
-
-    /**
-     * The name of this pool.
-     * @return The pool name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
      * Returns the lanes contained by this pool (must be at least one).
      * @return The swim lanes
      */
     public Collection<Lane> getLanes() {
         return lanes;
-    }
-
-    /**
-     * Adds a lane to this pool.
-     * @param lane The lane to add
-     * @return True if lane added
-     */
-    public boolean addLane(Lane lane) {
-        return lanes.add(lane);
     }
 }

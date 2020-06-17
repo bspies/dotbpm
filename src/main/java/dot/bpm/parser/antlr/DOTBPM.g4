@@ -3,24 +3,26 @@ grammar DOTBPM;
 process           :   PROCESS id CURLY_OPEN (stmt_list | pool_list) CURLY_CLOSE EOF ;
 subprocess        :   SUBPROCESS id CURLY_OPEN stmt_list (VERT_LINE boundary_event)* CURLY_CLOSE ;
 pool_list         :   pool+ ;
-pool              :   POOL_OPEN id (STMT_TERM attr_list)? VERT_LINE (stmt_list | lane_list) POOL_CLOSE ;
+pool_header       :   id (STMT_TERM attr_list)? ;
+pool              :   POOL_OPEN pool_header VERT_LINE (stmt_list | lane_list) POOL_CLOSE ;
 lane_list         :   lane+ ;
-lane              :   LANE_OPEN id (STMT_TERM attr_list)? VERT_LINE stmt_list LANE_CLOSE ;
+lane_header       :   id (STMT_TERM attr_list)? ;
+lane              :   LANE_OPEN lane_header VERT_LINE stmt_list LANE_CLOSE ;
+
 stmt_list         :   (stmt STMT_TERM?)* ;
-stmt              :   sequence_elem | sequence | association ;
+stmt              :   sequence | sequence_elem | association ;
 sequence          :   sequence_elem sequence_flow sequence_elem (sequence_flow sequence_elem)* ;
 sequence_elem     :   activity | gateway | event | link ;
 activity          :   task | subprocess ;
 task              :   SQRE_OPEN task_type id
+                      (STMT_TERM attr_list)?                    /* attributes for task */
                       (VERT_LINE (input_set)? (output_set)?)?   /* input/output sets */
-                      (VERT_LINE attr_list)?                    /* attributes for activity */
                       (VERT_LINE boundary_event)*               /* associated boundary events */
                       SQRE_CLOSE ;
 task_type         :   USER | SERVICE | SCRIPT ;
-event             :   PAREN_OPEN event_type id (VERT_LINE attr_list)? PAREN_CLOSE ;
-event_type        :   ANGLE_CLOSE /* start event */
-                      | SLASH     /* end event */
-                      | X_BANG    /* terminate event */
+event             :   PAREN_OPEN (event_type | event_category | event_category ':' event_type ) id (VERT_LINE attr_list)? PAREN_CLOSE ;
+event_category    :   ANGLE_CLOSE | SLASH | CATCH | THROW ;
+event_type        :   X_BANG      /* terminate event */
                       | BACKWARD  /* compensate event */
                       | X         /* cancel event */
                       | STAR      /* multi-event */
@@ -31,7 +33,6 @@ event_type        :   ANGLE_CLOSE /* start event */
                       | TILDE     /* error event */
                       | AT_SYMB   /* message event */
                       | ELLIPSIS  /* timer event */
-                      | BLANK     /* none event */
                       ;
 boundary_event    :   event sequence_flow link;
 gateway           :   ANGLE_OPEN (fork_diverge | condition_diverge | event_diverge | and_converge | or_converge) ANGLE_CLOSE ;
@@ -44,9 +45,9 @@ inflows           :   IN ':' link_list ;
 outflows          :   OUT ':' link_list ;
 cond_outflows     :   OUT ':' cond_outflow (',' cond_outflow)* (DEFAULT ':' link)?;
 cond_outflow      :   expression ':' link ;
-// message           :   sender messsage_flow recipient ;
-// sender            :   (activity | event | link) ;
-// recipient         :   (activity | event | link) ;
+message           :   sender message_flow recipient ;
+sender            :   (activity_link | event_link) ;
+recipient         :   (activity_link | event_link | endpoint_link) ;
 association       :   (link assoc_flow artifact) | (artifact assoc_flow   link) ;
 artifact          :   DVERT_LINE id DVERT_LINE ;
 assoc_flow        :   dir_assoc | undir_assoc ;
@@ -57,12 +58,13 @@ message_flow      :   '-->' ;
 input_set         :   IN param_list ;
 output_set        :   OUT param_list ;
 attr_list         :   attribute (',' attribute)* ;
-attribute         :   id '=' attr_value ;
+attribute         :   (namespace_id | id) '=' attr_value ;
 attr_value        :   STRING | NUMBER | BOOLEAN ;
 param_list        :   param (',' param)* ;
 param             :   id ':' param_type ;
 param_type        :   'string' | 'boolean' | 'number' | 'date' | 'datetime' | 'time' ;
 id                :   ID ;
+namespace_id      :   id ':' id ;
 link_list         :   link (',' link)* ;
 event_links       :   event_link (',' event_link)* ;
 link              :   activity_link | event_link | gateway_link ;
@@ -70,7 +72,7 @@ activity_link     :   REF SQRE_OPEN id SQRE_CLOSE ;
 event_link        :   REF PAREN_OPEN id PAREN_CLOSE ;
 gateway_link      :   REF ANGLE_OPEN id ANGLE_CLOSE ;
 pool_link         :   REF POOL_OPEN id POOL_CLOSE ;
-process_link      :   REF CURLY_OPEN id CURLY_CLOSE ;
+endpoint_link     :   REF CURLY_OPEN id ('.' id)? CURLY_CLOSE ;
 expression        :   '`' (.)*? '`' ;
 
 /* symbols */
@@ -116,6 +118,9 @@ USER           :   [Uu][Ss][Ee][Rr] ;
 SERVICE        :   [Ss][Ee][Rr][Vv][Ii][Cc][Ee] ;
 SCRIPT         :   [Ss][Cc][Rr][Ii][Pp][Tt] ;
 
+CATCH          :   [Cc][Aa][Tt][Cc][Hh] ;
+THROW          :   [Tt][Hh][Rr][Oo][Ww] ;
+
 IN             :   [Ii][Nn] ;
 OUT            :   [Oo][Uu][Tt] ;
 DEFAULT        :   [Dd][Ee][Ff][Aa][Uu][Ll][Tt] ;
@@ -124,9 +129,9 @@ FORK           :   [Ff][Oo][Rr][Kk] ;                     /* parallel split (AND
 XOR_SPLIT      :   [Xx][Oo][Rr]'-'[Ss][Pp][Ll][Ii][Tt] ;  /* exclusive choice (XOR) */
 OR_SPLIT       :   [Oo][Rr]'-'[Ss][Pp][Ll][Ii][Tt] ;      /* multiple choice (OR) */
 EVENT_SPLIT    :   '(*)' ;                                /* event-based exclusive OR split */
-JOIN           :   [Jj}[Oo][Ii][Nn] ;                     /* synchronized merge (AND) */
+JOIN           :   [Jj][Oo][Ii][Nn] ;                     /* synchronized merge (AND) */
 OR_JOIN        :   [Oo][Rr]'-'[Jj}[Oo][Ii][Nn] ;          /* structured synchronized merge (OR) */
-XOR_JOIN       :   [Xx][Oo][Rr]'-'[Jj}[Oo][Ii][Nn] ;      /* unsynchronized merge (XOR) */
+XOR_JOIN       :   [Xx][Oo][Rr]'-'[Jj][Oo][Ii][Nn] ;      /* unsynchronized merge (XOR) */
 
 /** any double-quoted string ("...") possibly containing escaped quotes */
 STRING      :   '"' ('\\"'|.)*? '"' ;

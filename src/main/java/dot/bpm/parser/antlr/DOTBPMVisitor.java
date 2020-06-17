@@ -29,6 +29,12 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPool_list(DOTBPMParser.Pool_listContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#pool_header}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPool_header(DOTBPMParser.Pool_headerContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#pool}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -40,6 +46,12 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLane_list(DOTBPMParser.Lane_listContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#lane_header}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLane_header(DOTBPMParser.Lane_headerContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#lane}.
 	 * @param ctx the parse tree
@@ -94,6 +106,12 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitEvent(DOTBPMParser.EventContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#event_category}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEvent_category(DOTBPMParser.Event_categoryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#event_type}.
 	 * @param ctx the parse tree
@@ -166,6 +184,24 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitCond_outflow(DOTBPMParser.Cond_outflowContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#message}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMessage(DOTBPMParser.MessageContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#sender}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSender(DOTBPMParser.SenderContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#recipient}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRecipient(DOTBPMParser.RecipientContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#association}.
 	 * @param ctx the parse tree
@@ -263,6 +299,12 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitId(DOTBPMParser.IdContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#namespace_id}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNamespace_id(DOTBPMParser.Namespace_idContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#link_list}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -305,11 +347,11 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPool_link(DOTBPMParser.Pool_linkContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DOTBPMParser#process_link}.
+	 * Visit a parse tree produced by {@link DOTBPMParser#endpoint_link}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitProcess_link(DOTBPMParser.Process_linkContext ctx);
+	T visitEndpoint_link(DOTBPMParser.Endpoint_linkContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#expression}.
 	 * @param ctx the parse tree

@@ -16,6 +16,7 @@ package dot.bpm.parser;
 import dot.bpm.diagram.ProcessDiagram;
 import dot.bpm.parser.antlr.DOTBPMLexer;
 import dot.bpm.parser.antlr.DOTBPMParser;
+import dot.bpm.parser.internal.DiagramParseListener;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;

@@ -14,62 +14,25 @@
 package dot.bpm.diagram;
 
 /**
- * A sequence flow between two nodes in the diagram.
+ * A sequence flow between two flow objects in the diagram.
  *
  * @author Brennan Spies
  */
-public class SequenceFlow implements DiagramElement {
+public class SequenceFlow {
 
-    private Node source, target;
+    private final FlowNode target;
+    private final FlowNode source;
 
-    public SequenceFlow(Node source) {
-        this.source = source;
-    }
-
-    public SequenceFlow(Node source, Node target) {
+    public SequenceFlow(FlowNode source, FlowNode target) {
         this.source = source;
         this.target = target;
     }
 
-    public Node getSource() {
+    public FlowNode getSource() {
         return source;
     }
 
-    public Node getTarget() {
+    public FlowNode getTarget() {
         return target;
-    }
-
-    public void setTarget(Node target) {
-        this.target = target;
-    }
-
-    @Override public Diagram getParent() {
-        return source.getParent();
-    }
-
-    public static Builder builder() {
-        return new Builder();
-    }
-
-    /**
-     * Builder for {@code SequenceFlow}.
-     */
-    public static class Builder implements dot.bpm.util.Builder<SequenceFlow> {
-
-        private Node source, target;
-
-        public Builder withSource(Node source) {
-            this.source = source;
-            return this;
-        }
-
-        public Builder withTarget(Node target) {
-            this.target = target;
-            return this;
-        }
-
-        @Override public SequenceFlow build() {
-            return new SequenceFlow(source, target);
-        }
     }
 }

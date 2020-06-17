@@ -38,6 +38,16 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 */
 	void exitPool_list(DOTBPMParser.Pool_listContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#pool_header}.
+	 * @param ctx the parse tree
+	 */
+	void enterPool_header(DOTBPMParser.Pool_headerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#pool_header}.
+	 * @param ctx the parse tree
+	 */
+	void exitPool_header(DOTBPMParser.Pool_headerContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#pool}.
 	 * @param ctx the parse tree
 	 */
@@ -57,6 +67,16 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLane_list(DOTBPMParser.Lane_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#lane_header}.
+	 * @param ctx the parse tree
+	 */
+	void enterLane_header(DOTBPMParser.Lane_headerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#lane_header}.
+	 * @param ctx the parse tree
+	 */
+	void exitLane_header(DOTBPMParser.Lane_headerContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#lane}.
 	 * @param ctx the parse tree
@@ -147,6 +167,16 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitEvent(DOTBPMParser.EventContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#event_category}.
+	 * @param ctx the parse tree
+	 */
+	void enterEvent_category(DOTBPMParser.Event_categoryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#event_category}.
+	 * @param ctx the parse tree
+	 */
+	void exitEvent_category(DOTBPMParser.Event_categoryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#event_type}.
 	 * @param ctx the parse tree
@@ -267,6 +297,36 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCond_outflow(DOTBPMParser.Cond_outflowContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#message}.
+	 * @param ctx the parse tree
+	 */
+	void enterMessage(DOTBPMParser.MessageContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#message}.
+	 * @param ctx the parse tree
+	 */
+	void exitMessage(DOTBPMParser.MessageContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#sender}.
+	 * @param ctx the parse tree
+	 */
+	void enterSender(DOTBPMParser.SenderContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#sender}.
+	 * @param ctx the parse tree
+	 */
+	void exitSender(DOTBPMParser.SenderContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#recipient}.
+	 * @param ctx the parse tree
+	 */
+	void enterRecipient(DOTBPMParser.RecipientContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#recipient}.
+	 * @param ctx the parse tree
+	 */
+	void exitRecipient(DOTBPMParser.RecipientContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#association}.
 	 * @param ctx the parse tree
@@ -428,6 +488,16 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 */
 	void exitId(DOTBPMParser.IdContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DOTBPMParser#namespace_id}.
+	 * @param ctx the parse tree
+	 */
+	void enterNamespace_id(DOTBPMParser.Namespace_idContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DOTBPMParser#namespace_id}.
+	 * @param ctx the parse tree
+	 */
+	void exitNamespace_id(DOTBPMParser.Namespace_idContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#link_list}.
 	 * @param ctx the parse tree
 	 */
@@ -498,15 +568,15 @@ public interface DOTBPMListener extends ParseTreeListener {
 	 */
 	void exitPool_link(DOTBPMParser.Pool_linkContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DOTBPMParser#process_link}.
+	 * Enter a parse tree produced by {@link DOTBPMParser#endpoint_link}.
 	 * @param ctx the parse tree
 	 */
-	void enterProcess_link(DOTBPMParser.Process_linkContext ctx);
+	void enterEndpoint_link(DOTBPMParser.Endpoint_linkContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DOTBPMParser#process_link}.
+	 * Exit a parse tree produced by {@link DOTBPMParser#endpoint_link}.
 	 * @param ctx the parse tree
 	 */
-	void exitProcess_link(DOTBPMParser.Process_linkContext ctx);
+	void exitEndpoint_link(DOTBPMParser.Endpoint_linkContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DOTBPMParser#expression}.
 	 * @param ctx the parse tree

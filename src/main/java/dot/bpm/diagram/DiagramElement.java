@@ -13,10 +13,15 @@
  */
 package dot.bpm.diagram;
 
+/**
+ * Common interface for referencable diagram elements.
+ *
+ * @author Brennan Spies
+ */
 public interface DiagramElement {
     /**
-     * Returns the parent of this element.
-     * @return The parent process or subprocess diagram
+     * Returns the unique id of this element.
+     * @return The element id
      */
-    Diagram getParent();
+    String getId();
 }
