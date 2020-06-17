@@ -13,32 +13,35 @@
  */
 package dot.bpm.diagram;
 
+import dot.bpm.diagram.data.DataFlow;
+
 import java.util.Collection;
 import java.util.Optional;
 
 /**
  * Represents a diagram, a container of workflow
  * elements.
+ *
+ * @author Brennan Spies
  */
 public interface Diagram {
     /**
      * Returns all nodes in the graph.
      * @return The nodes
      */
-    Collection<Node> getNodes();
+    Collection<FlowNode> getNodes();
 
     /**
-     * Returns all the sequence flows in the graph.
+     * Returns all the data flows in the diagram.
+     * @return The data flows
+     */
+    Collection<DataFlow> getDataFlows();
+
+    /**
+     * Returns all the sequence flows in the diagram.
      * @return The sequence flows
      */
     Collection<SequenceFlow> getSequenceFlows();
-
-    /**
-     * Adds a node to the diagram.
-     * @param node The node to add
-     * @return True if node added, false if already present
-     */
-    boolean addNode(Node node);
 
     /**
      * Finds the node with the given id, if it is present
@@ -46,20 +49,5 @@ public interface Diagram {
      * @param id The id of the node
      * @return The node (if present)
      */
-    Optional<Node> findNode(String id);
-
-    /**
-     * Adds a flow to the diagram.
-     * @param flow The flow to add
-     * @return True if sequence flow added, false if already present
-     */
-    boolean addFlow(SequenceFlow flow);
-
-    /**
-     * Adds a flow between two nodes.
-     * @param source The source node
-     * @param target The target node
-     * @return True if sequence flow added, false if already present
-     */
-    boolean addFlow(Node source, Node target);
+    Optional<FlowNode> findNode(String id);
 }

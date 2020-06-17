@@ -16,24 +16,23 @@ package dot.bpm.diagram;
 /**
  * Represents a subdivision of a {@link Pool}, e.g. a
  * particular role within that pool.
+ *
+ * @author Brennan Spies
  */
-public class Lane extends AbstractElement {
+public class Lane implements FlowContainer {
 
-    private String name;
-    private Pool pool;
+    private final String name;
 
-    public Lane(Pool pool, String name) {
-        super(pool.getParent());
+    public Lane(String name) {
         this.name = name;
-        this.pool = pool;
-        pool.addLane(this);
     }
 
+    /**
+     * The name of the lane.
+     * @return The lane's name
+     */
+    @Override
     public String getName() {
         return name;
-    }
-
-    public Pool getPool() {
-        return pool;
     }
 }

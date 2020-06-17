@@ -184,6 +184,18 @@ public class DOTBPMBaseListener implements DOTBPMListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterEvent_category(DOTBPMParser.Event_categoryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEvent_category(DOTBPMParser.Event_categoryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterEvent_type(DOTBPMParser.Event_typeContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -323,6 +335,42 @@ public class DOTBPMBaseListener implements DOTBPMListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCond_outflow(DOTBPMParser.Cond_outflowContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMessage(DOTBPMParser.MessageContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMessage(DOTBPMParser.MessageContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSender(DOTBPMParser.SenderContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSender(DOTBPMParser.SenderContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRecipient(DOTBPMParser.RecipientContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRecipient(DOTBPMParser.RecipientContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -520,6 +568,18 @@ public class DOTBPMBaseListener implements DOTBPMListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNamespace_id(DOTBPMParser.Namespace_idContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNamespace_id(DOTBPMParser.Namespace_idContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterLink_list(DOTBPMParser.Link_listContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -604,13 +664,13 @@ public class DOTBPMBaseListener implements DOTBPMListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProcess_link(DOTBPMParser.Process_linkContext ctx) { }
+	@Override public void enterEndpoint_link(DOTBPMParser.Endpoint_linkContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProcess_link(DOTBPMParser.Process_linkContext ctx) { }
+	@Override public void exitEndpoint_link(DOTBPMParser.Endpoint_linkContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

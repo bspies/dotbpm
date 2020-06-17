@@ -13,27 +13,48 @@
  */
 package dot.bpm.diagram;
 
+import dot.bpm.diagram.messages.Messageable;
+
 import java.util.Collection;
 import java.util.HashSet;
 
 /**
  * Describes a participant in the workflow.
+ *
+ * @author Brennan Spies
  */
-public class Pool extends AbstractElement {
+public class Pool implements DiagramElement, FlowContainer, Messageable {
 
-    private boolean main = false;
-    private String name;
-    private Collection<Lane> lanes;
+    private final boolean main;
+    private final String id, name;
+    private final Collection<Lane> lanes;
 
-    public Pool(Diagram parent, String name) {
-        super(parent);
-        this.name = name;
-        this.lanes = new HashSet<>();
+    public Pool(String id, String name) {
+        this(id, name, false);
     }
 
-    public Pool(Diagram diagram, String name, boolean isMain) {
-        this(diagram, name);
-        setMain(isMain);
+    public Pool(String id, String name, boolean isMain) {
+        this.id = id;
+        this.name = name;
+        this.lanes = new HashSet<>();
+        this.main = isMain;
+    }
+
+    /**
+     * The pool id.
+     * @return The pool's id
+     */
+    @Override public String getId() {
+        return id;
+    }
+
+    /**
+     * The pool name.
+     * @return The pool's name
+     */
+    @Override
+    public String getName() {
+        return name;
     }
 
     /**
@@ -42,23 +63,6 @@ public class Pool extends AbstractElement {
      */
     public boolean isMain() {
         return main;
-    }
-
-    /**
-     * Sets the main flag to indicate whether or not
-     * this pool is the main one.
-     * @param isMainPool True if this pool is main
-     */
-    public void setMain(boolean isMainPool) {
-        this.main = isMainPool;
-    }
-
-    /**
-     * The name of this pool.
-     * @return The pool name
-     */
-    public String getName() {
-        return name;
     }
 
     /**

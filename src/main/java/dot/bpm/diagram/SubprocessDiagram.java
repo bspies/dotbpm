@@ -13,50 +13,90 @@
  */
 package dot.bpm.diagram;
 
+import dot.bpm.diagram.activities.ActivityNode;
+import dot.bpm.diagram.activities.ActivityNodeDelegate;
+import dot.bpm.diagram.data.DataFlow;
+import dot.bpm.diagram.data.ParameterSet;
+
 import java.util.Collection;
 import java.util.Optional;
 
 /**
  * Diagram for a sub-process.
+ *
+ * @author Brennan Spies
  */
-public class SubprocessDiagram extends AbstractNode implements Diagram {
+public class SubprocessDiagram implements ActivityNode, Diagram {
 
-    private final DiagramDelegate delegate = new DiagramDelegate();
+    private final DiagramDelegate diagramDelegate;
+    private final ActivityNodeDelegate activityDelegate;
 
-    public SubprocessDiagram(Diagram parent, Lane lane, String id) {
-        super(parent, lane, id);
+    public SubprocessDiagram(ActivityNodeDelegate activityDelegate, DiagramDelegate diagramDelegate) {
+        this.activityDelegate = activityDelegate;
+        this.diagramDelegate = diagramDelegate;
     }
 
-    @Override public Collection<Node> getNodes() {
-        return delegate.getNodes();
-    }
-
-    @Override public Collection<SequenceFlow> getSequenceFlows() {
-        return delegate.getSequenceFlows();
-    }
-
-    @Override public boolean addNode(Node node) {
-        return delegate.addNode(node);
-    }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public Optional<Node> findNode(String id) {
-        return delegate.findNode(id);
+    public String getId() {
+        return activityDelegate.getId();
     }
 
-    @Override public boolean addFlow(SequenceFlow flow) {
-        return delegate.addFlow(flow);
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Lane getLane() {
+        return activityDelegate.getLane();
     }
 
-    @Override public boolean addFlow(Node source, Node target) {
-        return delegate.addFlow(source, target);
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Collection<FlowNode> getNodes() {
+        return diagramDelegate.getNodes();
     }
 
-    @Override public Diagram getParent() {
-        return super.getParent();
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Collection<DataFlow> getDataFlows() {
+        return diagramDelegate.getDataFlows();
     }
 
-    @Override public Lane getLane() {
-        return super.getLane();
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Collection<SequenceFlow> getSequenceFlows() {
+        return diagramDelegate.getSequenceFlows();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Optional<FlowNode> findNode(String id) {
+        return diagramDelegate.findNode(id);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ParameterSet getDataInput() {
+        return activityDelegate.getDataInput();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ParameterSet getDataOutput() {
+        return activityDelegate.getDataOutput();
     }
 }

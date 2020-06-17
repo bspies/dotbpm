@@ -1,4 +1,4 @@
 /* Process with a single task */
 process simple_task {
-   [user t1 | foo="bar"]
+   [user t1; foo="bar"]
 }
