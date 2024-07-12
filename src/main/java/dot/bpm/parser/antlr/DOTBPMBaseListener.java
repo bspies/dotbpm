@@ -1,4 +1,4 @@
-// Generated from E:/Brennan/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.8
+// Generated from E:/Brennan/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr/DOTBPM.g4 by ANTLR 4.13.1
 package dot.bpm.parser.antlr;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -10,6 +10,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
+@SuppressWarnings("CheckReturnValue")
 public class DOTBPMBaseListener implements DOTBPMListener {
 	/**
 	 * {@inheritDoc}

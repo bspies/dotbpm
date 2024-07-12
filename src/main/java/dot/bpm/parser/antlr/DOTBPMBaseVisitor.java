@@ -1,4 +1,4 @@
-// Generated from E:/Brennan/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.8
+// Generated from E:/Brennan/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr/DOTBPM.g4 by ANTLR 4.13.1
 package dot.bpm.parser.antlr;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -10,6 +10,7 @@ import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
+@SuppressWarnings("CheckReturnValue")
 public class DOTBPMBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements DOTBPMVisitor<T> {
 	/**
 	 * {@inheritDoc}
