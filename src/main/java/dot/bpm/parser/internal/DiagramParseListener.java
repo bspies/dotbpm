@@ -113,6 +113,7 @@ public class DiagramParseListener extends DOTBPMBaseListener {
     public void exitFork_diverge(DOTBPMParser.Fork_divergeContext ctx) {
         String gatewayId = ctx.id().getText();
         ForkNode forkNode = createForkNode(gatewayId);
+        // processNode(forkNode);
         ctx.outflows().link_list().link().forEach(linkCtx -> {
             SequenceFlowBuilder builder = new SequenceFlowBuilder().withSource(forkNode);
             final String targetId = getLinkId(linkCtx);

@@ -1,4 +1,4 @@
-// Generated from E:/Brennan/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr\DOTBPM.g4 by ANTLR 4.8
+// Generated from D:/Home/Brennan/Alienware Files/Projects/dotbpm/src/main/java/dot/bpm/parser/antlr/DOTBPM.g4 by ANTLR 4.13.2
 package dot.bpm.parser.antlr;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -23,6 +23,42 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSubprocess(DOTBPMParser.SubprocessContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#pool_list}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPool_list(DOTBPMParser.Pool_listContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#pool_header}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPool_header(DOTBPMParser.Pool_headerContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#pool}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPool(DOTBPMParser.PoolContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#lane_list}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLane_list(DOTBPMParser.Lane_listContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#lane_header}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLane_header(DOTBPMParser.Lane_headerContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#lane}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLane(DOTBPMParser.LaneContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#stmt_list}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -41,11 +77,11 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSequence(DOTBPMParser.SequenceContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DOTBPMParser#sequence_element}.
+	 * Visit a parse tree produced by {@link DOTBPMParser#sequence_elem}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSequence_element(DOTBPMParser.Sequence_elementContext ctx);
+	T visitSequence_elem(DOTBPMParser.Sequence_elemContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#activity}.
 	 * @param ctx the parse tree
@@ -53,11 +89,17 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitActivity(DOTBPMParser.ActivityContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DOTBPMParser#activity_type}.
+	 * Visit a parse tree produced by {@link DOTBPMParser#task}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitActivity_type(DOTBPMParser.Activity_typeContext ctx);
+	T visitTask(DOTBPMParser.TaskContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#task_type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTask_type(DOTBPMParser.Task_typeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#event}.
 	 * @param ctx the parse tree
@@ -65,11 +107,23 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEvent(DOTBPMParser.EventContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#event_category}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEvent_category(DOTBPMParser.Event_categoryContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#event_type}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitEvent_type(DOTBPMParser.Event_typeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#boundary_event}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoundary_event(DOTBPMParser.Boundary_eventContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#gateway}.
 	 * @param ctx the parse tree
@@ -77,11 +131,89 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitGateway(DOTBPMParser.GatewayContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DOTBPMParser#gateway_type}.
+	 * Visit a parse tree produced by {@link DOTBPMParser#fork_diverge}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitGateway_type(DOTBPMParser.Gateway_typeContext ctx);
+	T visitFork_diverge(DOTBPMParser.Fork_divergeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#event_diverge}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEvent_diverge(DOTBPMParser.Event_divergeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#condition_diverge}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCondition_diverge(DOTBPMParser.Condition_divergeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#and_converge}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnd_converge(DOTBPMParser.And_convergeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#or_converge}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOr_converge(DOTBPMParser.Or_convergeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#inflows}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInflows(DOTBPMParser.InflowsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#outflows}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOutflows(DOTBPMParser.OutflowsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#cond_outflows}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCond_outflows(DOTBPMParser.Cond_outflowsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#cond_outflow}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCond_outflow(DOTBPMParser.Cond_outflowContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#message}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMessage(DOTBPMParser.MessageContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#sender}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSender(DOTBPMParser.SenderContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#recipient}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRecipient(DOTBPMParser.RecipientContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#association}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssociation(DOTBPMParser.AssociationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#artifact}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArtifact(DOTBPMParser.ArtifactContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#assoc_flow}.
 	 * @param ctx the parse tree
@@ -89,17 +221,41 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAssoc_flow(DOTBPMParser.Assoc_flowContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DOTBPMParser#seq_flow}.
+	 * Visit a parse tree produced by {@link DOTBPMParser#dir_assoc}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSeq_flow(DOTBPMParser.Seq_flowContext ctx);
+	T visitDir_assoc(DOTBPMParser.Dir_assocContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DOTBPMParser#msg_flow}.
+	 * Visit a parse tree produced by {@link DOTBPMParser#undir_assoc}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMsg_flow(DOTBPMParser.Msg_flowContext ctx);
+	T visitUndir_assoc(DOTBPMParser.Undir_assocContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#sequence_flow}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSequence_flow(DOTBPMParser.Sequence_flowContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#message_flow}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMessage_flow(DOTBPMParser.Message_flowContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#input_set}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInput_set(DOTBPMParser.Input_setContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#output_set}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOutput_set(DOTBPMParser.Output_setContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#attr_list}.
 	 * @param ctx the parse tree
@@ -107,11 +263,35 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAttr_list(DOTBPMParser.Attr_listContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#attribute}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAttribute(DOTBPMParser.AttributeContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#attr_value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAttr_value(DOTBPMParser.Attr_valueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#param_list}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParam_list(DOTBPMParser.Param_listContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#param}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParam(DOTBPMParser.ParamContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#param_type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParam_type(DOTBPMParser.Param_typeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#id}.
 	 * @param ctx the parse tree
@@ -119,9 +299,63 @@ public interface DOTBPMVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitId(DOTBPMParser.IdContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#namespace_id}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNamespace_id(DOTBPMParser.Namespace_idContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#link_list}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLink_list(DOTBPMParser.Link_listContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#event_links}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEvent_links(DOTBPMParser.Event_linksContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DOTBPMParser#link}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitLink(DOTBPMParser.LinkContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#activity_link}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitActivity_link(DOTBPMParser.Activity_linkContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#event_link}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEvent_link(DOTBPMParser.Event_linkContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#gateway_link}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGateway_link(DOTBPMParser.Gateway_linkContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#pool_link}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPool_link(DOTBPMParser.Pool_linkContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#endpoint_link}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEndpoint_link(DOTBPMParser.Endpoint_linkContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DOTBPMParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpression(DOTBPMParser.ExpressionContext ctx);
 }

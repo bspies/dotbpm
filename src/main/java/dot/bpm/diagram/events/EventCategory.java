@@ -7,8 +7,10 @@ import java.util.stream.Collectors;
 
 public enum EventCategory {
     START (">"),
-    INTERMEDIATE(""),
+    CATCHING("catch"),
+    THROWING("throw"),
     END("/");
+
 
     private static final Map<String,EventCategory> lookup = createLookup();
     private final String symbol;
@@ -22,7 +24,7 @@ public enum EventCategory {
     }
 
     public static EventCategory of(String symbol) {
-        EventCategory category = lookup.get(symbol);
+        EventCategory category = lookup.get(symbol.toLowerCase());
         if (category == null) {
             throw new IllegalArgumentException("Symbol '" + symbol + "' is not a valid event type");
         }

@@ -16,7 +16,6 @@ package dot.bpm.diagram;
 import dot.bpm.core.Attributes;
 import dot.bpm.diagram.data.DataFlow;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Optional;
